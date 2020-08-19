@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detail</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>{{post.title}}</h1>
+      <p>{{post.pub_data}}</p>
+      <p>{{post.body}}</p>
+    </div>
+    <div>
+      <p>
+        <a href="{% url 'delete' post.id %}">삭제하기</a>
+      </p>
+    </div>
+    <a href="{% url 'home' %}">back</a>
+  </body>
+</html>
