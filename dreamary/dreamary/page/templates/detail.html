@@ -21,6 +21,13 @@
         {{designer.address}} 에서 활동 중 입니다.
       </h5>
       <p class="lead">{{designer.description}}</p>
+
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="btn-group">
+          <a class="btn btn-sm btn-outline-danger" href="{% url 'delete' designer.id %}">정보 삭제</a>
+        </div>
+      </div>
+
     </div>
     <div class="col-md-4">
       <img src="{{ designer.image.url }}" width="150%" alt="Designer_Profile_Image" />
