@@ -12,4 +12,7 @@ urlpatterns = [
 
     # Delete - 정보 삭제
     path('delete/<int:designer_id>/', views.delete, name="delete"),
+
+    # Update - 정보 수정
+    path('update/<int:designer_id>/', views.update, name="update"),
 ]

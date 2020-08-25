@@ -39,3 +39,20 @@ def delete(request, designer_id):  # detail 페이지의 정보 삭제 버튼 �
     post.delete()
 
     return redirect('home')
+
+
+def update(request, designer_id):  # create과 달리 페이지 이동(GET)과 정보 수정(POST)을 한 메소드에서 진행
+    post = get_object_or_404(Designer, pk=designer_id)
+
+    if request.method == 'POST':
+        if 'image' in request.FILES:
+            post.image = request.FILES['image']
+        post.name = request.POST['name']
+        post.address = request.POST['address']
+        post.description = request.POST['description']
+
+        post.save()
+        return redirect('detail', post.id)
+
+    else:  # reqeust == 'GET'
+        return render(request, 'update.html', {'designer': post})
