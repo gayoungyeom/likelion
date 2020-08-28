@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+
+<body>
+    <h1>Index page</h1>
+    {{ userpage_error }} <br>
+    <a class="nav-link" href="{% url 'userpage' %}">userpage</a>
+    <br>
+
+    <!-- 로그인 상태라면 로그아웃 버튼 나타내기 -->
+    {% if user.is_authenticated %}
+    <h3>Hello {{ user.username }}</h3>
+    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+
+    <!-- 로그인되어 있지 않으면 회원가입/ 로그인 버튼 나타내기 -->
+    {% else %}
+    <a class="nav-link" href="{% url 'signup' %}">Signup</a>
+    <a class="nav-link" href="{% url 'login' %}">Login</a>
+
+    {% endif %}
+
+</body>
+
+</html>
