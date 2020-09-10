@@ -88,4 +88,14 @@ def comments_delete(request, post_id, comment_id):
     comment = Comment.objects.get(pk=comment_id)
     comment.delete()
 
-    return redirect('detail', post_id)
+    return redirect('detail', post.id)
+
+def like(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
+
+    if request.user in post.like_users.all():
+        post.like_users.remove(request.user)
+    else:
+        post.like_users.add(request.user)
+    
+    return redirect('detail', post.id)

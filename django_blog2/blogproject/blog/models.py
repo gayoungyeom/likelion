@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.conf import settings
 # 게시글과 댓글은 1:N 구조
 
 
@@ -8,6 +8,7 @@ class Post(models.Model):  # 게시글
     image = models.ImageField(upload_to='images/', null=True, blank=True)
     pub_date = models.DateTimeField('date published')
     body = models.TextField()
+    like_users = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='like_posts')
 
     def __str__(self):
         return self.title

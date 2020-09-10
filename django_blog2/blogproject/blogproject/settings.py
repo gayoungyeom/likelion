@@ -34,11 +34,20 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.sites',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+
+    # social login 계정 관련 설정
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
+    # social login provider - google
+    'allauth.socialaccount.providers.google',
 ]
 
 MIDDLEWARE = [
@@ -130,3 +139,14 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+AUTHENTICATION_BACKENDS = (
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+SITE_ID = 1
+LOGIN_REDIRECT_URL = '/' # 로그인 후 호출되는 url 설정
+ACCOUNT_EMAIL_VERIFICATION = 'none'

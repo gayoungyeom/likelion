@@ -31,6 +31,9 @@
     <link href="/docs/4.5/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
+    <!--font Awesome CDN-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="/docs/4.5/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
     <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
@@ -96,6 +99,13 @@
                         <circle cx="12" cy="13" r="4" /></svg>
                     <strong>GY's Blog</strong>
                 </a>
+
+                <div class="p-2 bd-highlight">
+                    {% if user.is_authenticated %}
+                    <div class="navbar-text">{{ user.username }}님이 로그인 중입니다.</div>
+                    {% endif %}
+                </div>
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
                     aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
