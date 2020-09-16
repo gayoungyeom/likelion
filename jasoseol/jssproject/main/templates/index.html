@@ -19,11 +19,13 @@
     </div>
 
     {% for jss in all_jss %}
-    <div class="all_jss">
-        <p>{{ jss.title }}</p>
-        <p>{{ jss.content }}</p>
-        <p>{{ jss.updated_at|date:"Y-m-d" }}</p>
-    </div>
+    <a href="{% url 'detail' jss.id %}">
+        <div class="all_jss">
+            <p>{{ jss.title }}</p>
+            <p>{{ jss.content }}</p>
+            <p>{{ jss.updated_at|date:"Y-m-d" }}</p>
+        </div>
+    </a>
     {% endfor %}
 </body>
 
