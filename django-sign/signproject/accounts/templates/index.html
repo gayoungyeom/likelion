@@ -9,13 +9,17 @@
 
 <body>
     <h1>Index page</h1>
-    {{ userpage_error }} <br>
+
+    {% if user.is_authenticated %}
+    <h2>Hello {{ user.username }}</h2>
+    {% endif %}
+
+    {{ userpage_error }}{{ check_error }}{{ activate_account }}{{ activate_error }} <br>
     <a class="nav-link" href="{% url 'userpage' %}">userpage</a>
     <br>
 
     <!-- 로그인 상태라면 로그아웃 버튼 나타내기 -->
     {% if user.is_authenticated %}
-    <h3>Hello {{ user.username }}</h3>
     <a class="nav-link" href="{% url 'logout' %}">Logout</a>
 
     <!-- 로그인되어 있지 않으면 회원가입/ 로그인 버튼 나타내기 -->
