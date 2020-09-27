@@ -12,6 +12,7 @@
 - [09.08](https://jun108059.github.io/django-blog/RestFramework1/01.restframework.html) - DRF(Django REST Framwork)
 - [09.10](https://github.com/Mulgyeol/2020-Django) - Social Login/ 좋아요 기능
 - [09.17](https://github.com/lee-sj/2020-django/blob/master/2020_09_17_google_mail.md) - Google 메일 인증 활용하기
+- [09.24](https://jun108059.github.io/django-blog/CKEditor/00.ckeditor.html) - CKEditor
 
 ## Unilion
 
